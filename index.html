@@ -327,7 +327,7 @@
       grid.innerHTML = items.map(p => `
         <article class="card" data-category="${p.category}">
           <div class="card-img-wrapper">
-            <img src="${p.imageUrl}" alt="${p.title}" class="card-img" loading="lazy">
+            <img src="${p.imageUrl}" alt="${p.title}" class="card-img" loading="lazy" onerror="if(this.src.includes('images/')){this.src=this.src.replace('images/','');}else if(!this.src.includes('/images/')){this.src=this.src.replace(location.pathname.substring(0, location.pathname.lastIndexOf('/')+1), 'images/');}">
             <span class="badge-top-left">${p.tag}</span>
             <span class="discount-badge">${p.discount}</span>
           </div>
